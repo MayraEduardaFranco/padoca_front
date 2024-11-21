@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Base de Usuários</title>
+    <link rel="stylesheet" href="user/user.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Base de Clientes</h1>
+        <main>
+            <nav class="menu">
+              <a href="index.html"  class="menu-item">Home</a>
+              <a href="estoque.html" class="menu-item">Estoque</a>
+              <a href="user.html" class="menu-item">Usuários</a>
+              <a href="vendas.html" class="menu-item">Vendas</a>
+            </nav>
+          </main>
+    </div>
+        <!-- Tabela de usuários -->
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+                <!-- Usuários serão adicionados dinamicamente -->
+            </tbody>
+        </table>
+
+        <!-- Botão para abrir o formulário -->
+        <button class="btn" id="open-form-btn">Adicionar Usuário</button>
+    </div>
+
+    <!-- Modal de cadastro -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Cadastrar Novo Usuário</h2>
+            <form id="user-form">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX" pattern="\(\d{2}\) \d{5}-\d{4}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit" class="btn">Salvar</button>
+                <button type="button" class="btn cancel-btn" id="close-form-btn">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="user/user.js"></script>
+</body>
+</html>

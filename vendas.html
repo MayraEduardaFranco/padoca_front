@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Vendas</title>
+  <link rel="stylesheet" href="vendas/vendas.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Vendas - Padaria</h1>
+      <main>
+        <nav class="menu">
+          <a href="index.html"  class="menu-item">Home</a>
+          <a href="estoque.html" class="menu-item">Estoque</a>
+          <a href="user.html" class="menu-item">Usuários</a>
+          <a href="vendas.html" class="menu-item">Vendas</a>
+        </nav>
+      </main>
+    </header>
+    <main>
+      <!-- Tabela de vendas -->
+      <section id="sales-list">
+        <h2>Vendas Registradas</h2>
+        <button id="new-sale-btn">Nova Venda</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Quantidade</th>
+              <th>Preço</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+          <tbody id="sales-table-body">
+            <!-- As vendas serão listadas aqui -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Overlay para ofuscamento -->
+      <div id="overlay" class="hidden"></div>
+
+      <!-- Formulário de nova venda -->
+      <section id="new-sale-form" class="hidden">
+        <h2>Registrar Nova Venda</h2>
+        <form id="sale-form">
+          <label for="product">Produto:</label>
+          <input type="text" id="product" name="product" required>
+
+          <label for="quantity">Quantidade:</label>
+          <input type="number" id="quantity" name="quantity" required>
+
+          <label for="price">Preço:</label>
+          <input type="number" id="price" name="price" step="0.01" required>
+
+          <label for="date">Data:</label>
+          <input type="date" id="date" name="date" required>
+
+          <button type="submit">Salvar</button>
+          <button type="button" id="cancel-btn">Cancelar</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="vendas/vendas.js"></script>
+</body>
+</html>
