@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +17,31 @@
               <a href="vendas.html" class="menu-item">Vendas</a>
             </nav>
           </main>
-    </div>
+    
         <!-- Tabela de usuários -->
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                </tr>
+        <main>      
+            <div class="user-table-container">
+                 <table id="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+                         </tr>
             </thead>
+        </main>            
             <tbody id="user-list">
                 <!-- Usuários serão adicionados dinamicamente -->
+                     <!-- Exemplo de produto -->
+                         <tr>
+                            <td>1</td>
+                            <td>MAYRA</td>
+                            <td>2400622@escolas.anchieta.br</td>
+                            <td>(11) 91234-1234</td>
+                            <td><button class="deletar-btn">Remover</button></td>
+                        </tr>
             </tbody>
         </table>
 

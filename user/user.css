@@ -21,28 +21,31 @@ body {
   }
   
  h1 {
-    font-size: 36px;
     color: #ffffff;
+}
+.user-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
 }
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-thead th {
-    background-color: #473c38;
-    color: #ffffff;
-    padding: 10px;
-}
-
-tbody td {
-    border: 0px solid #cccccc;
-    padding: 10px;
+th, td {
+    padding: 12px;
     text-align: center;
+    border: 1px solid #ddd;
 }
 
-tbody tr:nth-child(even) {
+th {
+    background-color: #473c38;
+    color: white;
+}
+
+td {
     background-color: #f9f9f9;
 }
 
@@ -76,6 +79,13 @@ button:hover {
     background-color: #584401;
 }
 
+/* Centralizar apenas o botão "Adicionar Usuário" */
+#open-form-btn {
+    position: absolute; /* Posicionamento absoluto em relação ao body */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta a posição para o centro exato */
+}
 
 
 /* Modal */
@@ -94,10 +104,10 @@ button:hover {
 
 .modal-content {
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 10px;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
 }

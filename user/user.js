@@ -21,6 +21,7 @@ function renderUsers() {
             <td>${user.name}</td>
             <td>${user.email}</td>
             <td>${user.phone}</td>
+            <td><button class="deletar-btn">Deletar</button></td>
         `;
         userList.appendChild(row);
     });
@@ -58,5 +59,10 @@ userForm.addEventListener("submit", (event) => {
     console.log("Usuário cadastrado com sucesso:", { name, email, phone, password });
 });
 
-// Renderiza a tabela inicial
-renderUsers();
+// Deletar produto da tabela
+userList.addEventListener("click", (e) => {
+    if (e.target && e.target.classList.contains("deletar-btn")) {
+        const linha = e.target.closest("tr");
+        linha.remove(); // Remove a linha da tabela
+    }
+});

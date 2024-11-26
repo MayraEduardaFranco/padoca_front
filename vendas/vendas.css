@@ -67,10 +67,12 @@ body {
     transform: translate(-50%, -50%);
     background: white;
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 20; /* Sobrepõe o overlay */
   }
+
+  #sale-form {}
   .menu {
     display: flex;
     justify-content: center;
