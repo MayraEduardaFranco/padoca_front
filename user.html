@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro e Base de Usuários</title>
+    <title>Cadastro e Base de Clientes</title>
     <link rel="stylesheet" href="user/user.css">
 </head>
 <body>
@@ -28,6 +28,8 @@
                             <th>Nome</th>
                             <th>E-mail</th>
                             <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>Idade</th>
                             <th>Ações</th>
                          </tr>
             </thead>
@@ -40,6 +42,8 @@
                             <td>MAYRA</td>
                             <td>2400622@escolas.anchieta.br</td>
                             <td>(11) 91234-1234</td>
+                            <td>Rua Exemplo, 123</td>
+                            <td>22</td>
                             <td><button class="deletar-btn">Remover</button></td>
                         </tr>
             </tbody>
@@ -52,7 +56,7 @@
     <!-- Modal de cadastro -->
     <div id="modal" class="modal hidden">
         <div class="modal-content">
-            <h2>Cadastrar Novo Usuário</h2>
+            <h2>Cadastrar Novo Cliente</h2>
             <form id="user-form">
                 <div class="form-group">
                     <label for="name">Nome Completo</label>
@@ -64,12 +68,16 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">Telefone</label>
-                    <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX" pattern="\(\d{2}\) \d{5}-\d{4}" required>
+                    <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX"  required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    <label for="address">Endereço</label>
+                    <input type="text" id="address" name="address" placeholder="Digite seu endereço" required>
                 </div>
+                <div class="form-group">
+                    <label for="birthdate">Data de Nascimento</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                </div>                
                 <button type="submit" class="btn">Salvar</button>
                 <button type="button" class="btn cancel-btn" id="close-form-btn">Cancelar</button>
             </form>

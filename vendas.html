@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,25 +24,31 @@
       <section id="sales-list">
         <h2>Vendas Registradas</h2>
         <button id="new-sale-btn">Nova Venda</button>
-        <table>
+        <table id="vendas-table">
           <thead>
             <tr>
               <th>Produto</th>
               <th>Quantidade</th>
               <th>Preço</th>
               <th>Data</th>
+              <th>Horário</th>
+              <th>Cliente</th>
+              <th>Método de Pagamento</th>
               <th>Remover</th>
             </tr>
           </thead>
           <tbody id="sales-table-body">
             <!-- As vendas serão listadas aqui -->
               <!-- Exemplo de produto -->
-             <tr>
-                  <td>Pão</td>
-                  <td>50</td>
-                  <td>R$ 1,50</td>
-                  <td>2024-11-10</td>
-                  <td><button class="deletar-btn">Remover</button></td>
+              <tr>
+                <td>Pão</td>
+                <td>50</td>
+                <td>R$ 1,50</td>
+                <td>2024-11-10</td>
+                <td>10:30</td>
+                <td>Mayra</td>
+                <td>Crédito</td>
+                <td><button class="deletar-btn">Remover</button></td>
               </tr>
           </tbody>
         </table>
@@ -66,7 +72,18 @@
 
           <label for="date">Data:</label>
           <input type="date" id="date" name="date" required>
-
+          
+          <label for="time">Horário de Compra:</label>
+          <input type="time" id="time" name="time" required>
+          <label for="client">Cliente:</label>
+          <input type="text" id="client" name="client" placeholder="Nome do cliente" required>
+          <label for="payment-method">Método de Pagamento:</label>
+          <select id="payment-method" name="payment-method" required>
+            <option value="credito">Crédito</option>
+            <option value="debito">Débito</option>
+            <option value="pix">Pix</option>
+            <option value="dinheiro">Dinheiro</option>
+          </select>
           <button type="submit">Salvar</button>
           <button type="button" id="cancel-btn">Cancelar</button>
         </form>

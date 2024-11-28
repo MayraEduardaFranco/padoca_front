@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+   // Load the Visualization API and the piechart package.
+      google.charts.load("current", {packages:["corechart"]});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        // Dados simulados para a faixa etária
+        var data = google.visualization.arrayToDataTable([
+        ['Horário', 'Vendas'],
+        ['08:00', 5],
+        ['09:00', 8],
+        ['10:00', 12],
+        ['11:00', 7],
+        ['12:00', 15],
+        ['13:00', 10],
+        ['14:00', 20],
+        ['15:00', 13],
+        ['16:00', 22],
+        ['17:00', 18]
+      ]);
+        // Set chart options
+        var options = {
+        title: 'Vendas Realizadas Hoje por Horário',
+        hAxis: { title: 'Horário', format: 'h:mm a' },
+        vAxis: { title: 'Número de Vendas' },
+        legend: { position: 'bottom' },
+        curveType: 'function', // Linha suavizada
+       
+      };
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 380px;"></div>
+  </body>
+</html>

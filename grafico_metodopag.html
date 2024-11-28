@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+   // Load the Visualization API and the piechart package.
+      google.charts.load("current", {packages:["corechart"]});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+         // Dados simulados
+         var data = google.visualization.arrayToDataTable([
+        ['Método de Pagamento', 'Quantidade'],
+        ['Crédito', 30],
+        ['Débito', 20],
+        ['Pix', 40],
+        ['Dinheiro', 10]
+      ]);
+        // Set chart options
+      var options = {
+        title: 'Métodos de Pagamento',
+        pieHole: 0.4, // Cria o efeito de rosca
+        slices: {
+          0: { offset: 0.1 }, // Realça o primeiro item
+          1: { offset: 0.1 },
+          2: { offset: 0.1 },
+          3: { offset: 0.1 }
+        },
+        pieSliceText: 'percentage', // Exibe a porcentagem
+       
+      };
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 650px; height: 380px;"></div>
+  </body>
+</html>

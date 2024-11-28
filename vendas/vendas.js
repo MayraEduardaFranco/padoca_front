@@ -31,9 +31,15 @@ saleForm.addEventListener('submit', (event) => {
   const quantity = document.getElementById('quantity').value;
   const price = document.getElementById('price').value;
   const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const client = document.getElementById('client').value;
+  const paymentMethod = document.getElementById('payment-method').value;
+
+
+
 
   // Adiciona venda à lista
-  sales.push({ product, quantity, price, date });
+  sales.push({ product, quantity, price, date,time, client, paymentMethod });
 
   // Atualiza a tabela
   updateSalesTable();
@@ -53,7 +59,20 @@ function updateSalesTable() {
       <td>${sale.quantity}</td>
       <td>R$ ${parseFloat(sale.price).toFixed(2)}</td>
       <td>${sale.date}</td>
+      <td>${time}</td>
+      <td>${client}</td>
+      <td>${paymentMethod}</td>
+      <td><button class="deletar-btn">Deletar</button></td>
     `;
     salesTableBody.appendChild(row);
+    
   });
 }
+
+// Deletar produto da tabela
+salesTableBody.addEventListener("click", (e) => {
+  if (e.target && e.target.classList.contains("deletar-btn")) {
+      const linha = e.target.closest("tr");
+      linha.remove(); // Remove a linha da tabela
+  }
+});

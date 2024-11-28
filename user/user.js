@@ -1,5 +1,3 @@
-// script.js
-
 // Base de dados simulada
 let users = [];
 let userId = 1;
@@ -11,6 +9,18 @@ const openFormBtn = document.getElementById("open-form-btn");
 const closeFormBtn = document.getElementById("close-form-btn");
 const userForm = document.getElementById("user-form");
 
+// Função para calcular idade com base na data de nascimento
+function calculateAge(birthdate) {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 // Função para renderizar usuários na tabela
 function renderUsers() {
     userList.innerHTML = "";
@@ -21,6 +31,8 @@ function renderUsers() {
             <td>${user.name}</td>
             <td>${user.email}</td>
             <td>${user.phone}</td>
+            <td>${user.address}</td>
+            <td>${user.age}</td>
             <td><button class="deletar-btn">Deletar</button></td>
         `;
         userList.appendChild(row);
@@ -44,10 +56,14 @@ userForm.addEventListener("submit", (event) => {
     const name = userForm.name.value;
     const email = userForm.email.value;
     const phone = userForm.phone.value;
-    const password = userForm.password.value;
+    const address = userForm.address.value;
+    const birthdate = userForm.birthdate.value;
 
-    // Adiciona o novo usuário (senha não será exibida)
-    users.push({ id: userId++, name, email, phone });
+    // Calcular a idade
+    const age = calculateAge(birthdate);
+
+    // Adiciona o novo usuário
+    users.push({ id: userId++, name, email, phone, address, age });
 
     // Atualiza a tabela
     renderUsers();
@@ -56,13 +72,15 @@ userForm.addEventListener("submit", (event) => {
     userForm.reset();
     modal.classList.add("hidden");
 
-    console.log("Usuário cadastrado com sucesso:", { name, email, phone, password });
+    console.log("Usuário cadastrado com sucesso:", { name, email, phone, address, birthdate, age });
 });
 
-// Deletar produto da tabela
+// Deletar usuário da tabela
 userList.addEventListener("click", (e) => {
     if (e.target && e.target.classList.contains("deletar-btn")) {
         const linha = e.target.closest("tr");
-        linha.remove(); // Remove a linha da tabela
+        const id = linha.children[0].textContent; // Obter o ID do usuário
+        users = users.filter(user => user.id != id); // Remover o usuário da lista
+        renderUsers(); // Re-renderizar a tabela
     }
 });
